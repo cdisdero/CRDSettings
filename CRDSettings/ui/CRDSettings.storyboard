@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uVN-o6-rbv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="xQx-pz-IK5">
+            <objects>
+                <tableViewController storyboardIdentifier="SRSettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rOV-7I-25c" userLabel="Settings View Controller" customClass="CRDSettingsViewController" customModule="CRDSettings" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="R7h-Gz-AAE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellDefault" textLabel="4Hj-AN-ReJ" style="IBUITableViewCellStyleDefault" id="uJb-X2-4Gl" userLabel="cellDefault">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uJb-X2-4Gl" id="e23-za-X8a">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Hj-AN-ReJ">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cellTitleLabel"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="cellTitle">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellTitleDetail" textLabel="jQT-gt-X7d" detailTextLabel="XvQ-2K-X04" style="IBUITableViewCellStyleValue1" id="MhW-c3-Ak7" customClass="CRDSettingsTitleDetailTableViewCell" customModule="CRDSettings" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MhW-c3-Ak7" id="wG2-pX-ADK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jQT-gt-X7d">
+                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cellBasicTitle"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XvQ-2K-X04">
+                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cellBasicDetail"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="cellBasic">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <connections>
+                                    <segue destination="oCP-KE-9R9" kind="show" identifier="detailSegue" id="fJt-m2-TwJ">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellSwitch" id="3Zg-je-CX4" customClass="CRDSettingsSwitchTableViewCell" customModule="CRDSettings" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Zg-je-CX4" id="8Sa-ON-5RK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hT6-wO-JAW">
+                                            <rect key="frame" x="306" y="5.5" width="51" height="31"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cellSwitchToggle"/>
+                                            <connections>
+                                                <action selector="onSwitch:" destination="3Zg-je-CX4" eventType="valueChanged" id="BWb-Bb-3og"/>
+                                            </connections>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2k-Mn-aKU">
+                                            <rect key="frame" x="16" y="10" width="282" height="24"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cellSwitchTitle"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="hbK-U8-DbJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hT6-wO-JAW" firstAttribute="centerY" secondItem="8Sa-ON-5RK" secondAttribute="centerY" id="62o-yN-rpY"/>
+                                        <constraint firstItem="d2k-Mn-aKU" firstAttribute="centerY" secondItem="8Sa-ON-5RK" secondAttribute="centerY" id="DAx-G9-A1E"/>
+                                        <constraint firstItem="hT6-wO-JAW" firstAttribute="leading" secondItem="d2k-Mn-aKU" secondAttribute="trailing" constant="8" id="IXJ-OZ-qYb"/>
+                                        <constraint firstAttribute="trailing" secondItem="hT6-wO-JAW" secondAttribute="trailing" constant="20" symbolic="YES" id="Oeg-kq-UCq"/>
+                                        <constraint firstItem="hT6-wO-JAW" firstAttribute="leading" secondItem="d2k-Mn-aKU" secondAttribute="trailing" constant="8" symbolic="YES" id="TBd-pL-xrO"/>
+                                        <constraint firstItem="d2k-Mn-aKU" firstAttribute="leading" secondItem="8Sa-ON-5RK" secondAttribute="leadingMargin" id="xm5-Ge-NVo"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="cellSwitch">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <connections>
+                                    <outlet property="cellSwitch" destination="hT6-wO-JAW" id="98z-s9-2Q1"/>
+                                    <outlet property="title" destination="d2k-Mn-aKU" id="6zx-qI-TgD"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellButton" id="dCe-tC-NqF" customClass="CRDSettingsButtonTableViewCell" customModule="CRDSettings" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dCe-tC-NqF" id="hL3-hC-zaO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhF-5F-Arx">
+                                            <rect key="frame" x="16" y="5" width="339" height="33.5"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cellButtonButton"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="33" id="vlF-mY-7yN"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="onButtonTap:" destination="dCe-tC-NqF" eventType="touchUpInside" id="QGD-RR-wps"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="RhF-5F-Arx" secondAttribute="trailing" constant="20" symbolic="YES" id="3he-AM-0DY"/>
+                                        <constraint firstItem="RhF-5F-Arx" firstAttribute="leading" secondItem="hL3-hC-zaO" secondAttribute="leadingMargin" id="eEs-kr-wSB"/>
+                                        <constraint firstItem="RhF-5F-Arx" firstAttribute="top" secondItem="hL3-hC-zaO" secondAttribute="top" constant="5" id="h0i-ai-dfZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="RhF-5F-Arx" secondAttribute="bottom" constant="5" id="kJS-DM-tOC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="cellButton">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <connections>
+                                    <outlet property="button" destination="RhF-5F-Arx" id="GEc-JF-ECV"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellSlider" rowHeight="88" id="w3h-PY-OaD" customClass="CRDSettingsSliderTableViewCell" customModule="CRDSettings" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="231.5" width="375" height="88"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w3h-PY-OaD" id="fp5-Dy-t6A">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HhS-O6-NNk">
+                                            <rect key="frame" x="20" y="0.0" width="335" height="87.5"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iDg-lZ-JhT">
+                                                    <rect key="frame" x="-2" y="0.0" width="339" height="45"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="cellSliderSlider"/>
+                                                    <connections>
+                                                        <action selector="onSliderValueChanged:" destination="w3h-PY-OaD" eventType="valueChanged" id="HX8-9w-bkq"/>
+                                                    </connections>
+                                                </slider>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="ik5-PG-6tn">
+                                                    <rect key="frame" x="0.0" y="44" width="335" height="43.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9X-Qd-qrH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="43.5"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="cellSliderMinLabel"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2w-zg-Ptb">
+                                                            <rect key="frame" x="139" y="0.0" width="55.5" height="43.5"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="cellSliderCurrentLabel"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New value" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LDq-IQ-sLa">
+                                                            <rect key="frame" x="194.5" y="0.0" width="100" height="43.5"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="cellSliderCurrentEditField"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="V0z-KL-AgA"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
+                                                        </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvD-7K-D8e">
+                                                            <rect key="frame" x="303" y="0.0" width="32" height="43.5"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="cellSliderMaxLabel"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="88" id="BkM-mO-V52"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="HhS-O6-NNk" secondAttribute="trailing" constant="20" symbolic="YES" id="RPa-O6-uMe"/>
+                                        <constraint firstItem="HhS-O6-NNk" firstAttribute="top" secondItem="fp5-Dy-t6A" secondAttribute="top" id="RR6-Ya-koe"/>
+                                        <constraint firstAttribute="bottom" secondItem="HhS-O6-NNk" secondAttribute="bottom" id="WgO-8V-Wus"/>
+                                        <constraint firstItem="HhS-O6-NNk" firstAttribute="leading" secondItem="fp5-Dy-t6A" secondAttribute="leading" constant="20" symbolic="YES" id="fLZ-1A-me7"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="cellSlider">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <connections>
+                                    <outlet property="currentEditField" destination="LDq-IQ-sLa" id="c98-gp-o1d"/>
+                                    <outlet property="currentLabel" destination="Q2w-zg-Ptb" id="gnY-wH-TXo"/>
+                                    <outlet property="maxLabel" destination="rvD-7K-D8e" id="Woi-fj-WML"/>
+                                    <outlet property="minLabel" destination="u9X-Qd-qrH" id="vBj-eI-Nf4"/>
+                                    <outlet property="slider" destination="iDg-lZ-JhT" id="Tzq-4d-fCr"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellTitle" textLabel="j4S-lv-7WU" style="IBUITableViewCellStyleDefault" id="x1o-bD-Ndb" customClass="CRDSettingsSliderTableViewCell" customModule="CRDSettings" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="319.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x1o-bD-Ndb" id="Xob-wt-5GW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j4S-lv-7WU">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cellTitleLabel"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="cellTitle">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rOV-7I-25c" id="Iyd-n8-0OR"/>
+                            <outlet property="delegate" destination="rOV-7I-25c" id="rw2-TR-rjK"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="D60-uP-s2N"/>
+                        <barButtonItem title="Help" id="aU6-fc-uSQ"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Settings" id="joV-2G-Sxh">
+                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="3Qf-9F-LKz">
+                            <connections>
+                                <action selector="onDone:" destination="rOV-7I-25c" id="Zie-Ut-YAc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lyf-7c-gri" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1432.8" y="1092.5037481259371"/>
+        </scene>
+        <!--Settings Detail View Controller-->
+        <scene sceneID="UhL-Cf-6c9">
+            <objects>
+                <tableViewController storyboardIdentifier="SRSettingsDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oCP-KE-9R9" userLabel="Settings Detail View Controller" customClass="CRDSettingsDetailViewController" customModule="CRDSettings" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="gHT-2M-ewj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellDefault" id="SFb-t4-bR0">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SFb-t4-bR0" id="de8-Jk-peX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="cellDefault">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellEditText" id="DtF-Sh-wh2" customClass="CRDSettingsEditTextTableViewCell" customModule="CRDSettings" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DtF-Sh-wh2" id="hlw-0J-Lqk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a value" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5P8-Fw-h7I">
+                                            <rect key="frame" x="16" y="0.0" width="339" height="43.5"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cellEditTextField"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="QnO-m9-8Dn"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="onEditFieldChanged:" destination="DtF-Sh-wh2" eventType="editingChanged" id="Vje-aO-jHF"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="5P8-Fw-h7I" secondAttribute="bottom" id="WIP-R9-hZ6"/>
+                                        <constraint firstItem="5P8-Fw-h7I" firstAttribute="leading" secondItem="hlw-0J-Lqk" secondAttribute="leading" constant="16" id="vF1-FP-X7Y"/>
+                                        <constraint firstItem="5P8-Fw-h7I" firstAttribute="top" secondItem="hlw-0J-Lqk" secondAttribute="top" id="yhh-Kn-4ex"/>
+                                        <constraint firstAttribute="trailing" secondItem="5P8-Fw-h7I" secondAttribute="trailing" constant="20" symbolic="YES" id="z6E-Ap-d8c"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="editTextField" destination="5P8-Fw-h7I" id="usu-gx-y9t"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oCP-KE-9R9" id="7nQ-ta-VEF"/>
+                            <outlet property="delegate" destination="oCP-KE-9R9" id="Ddo-ce-eT0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Selected Setting" id="eHd-eI-8VJ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YeG-lw-by0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2216.8000000000002" y="1092.5037481259371"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="opx-U5-N8A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uVN-o6-rbv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AHj-Rv-g8Q">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rOV-7I-25c" kind="relationship" relationship="rootViewController" id="mKe-pQ-tDF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KEM-Fv-sYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="625" y="1093"/>
+        </scene>
+    </scenes>
+</document>
