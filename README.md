@@ -58,10 +58,10 @@ You can use Carthage to add this framework to your project:
 
 1. Add a `Cartfile` to the directory where your xcodeproj file is located.
 
-2. Edit this file to specify the 1.0.0 release or higher of this framework:
+2. Edit this file to specify the 1.0.1 release or higher of this framework:
 
     ```
-    github "cdisdero/CRDSettings" >= 1.0.0
+    github "cdisdero/CRDSettings" >= 1.0.1
     ```
 	
 3. Run Carthage to add the framework sources and build this framework:
