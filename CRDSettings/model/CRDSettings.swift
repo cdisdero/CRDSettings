@@ -38,10 +38,10 @@ public class CRDSettings: NSObject {
         }
     }
     
-    // MARK: - Internal symbols
+    // MARK: - Notifications
     
-    /// Notification sent internally to subscribers when the settings have changed in some way.
-    internal static let NotificationSettingsChanged = Notification.Name("NotificationSettingsChanged")
+    /// Notification sent to subscribers when the settings have changed in some way.
+    public static let NotificationSettingsChanged = Notification.Name("NotificationSettingsChanged")
 
     // MARK: - Private symbols
 
