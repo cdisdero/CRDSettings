@@ -10,6 +10,7 @@ Simple straightforward Swift-based framework for presenting and editing settings
 - [Installation](#installation)
 - [Usage](#usage)
 - [Customizing](#customizing)
+- [Notifications](#notifications)
 - [Reference](#reference)
 - [Conclusion](#conclusion)
 - [Known Issues](#knownissues)
@@ -19,7 +20,7 @@ Simple straightforward Swift-based framework for presenting and editing settings
 Often you want to allow users to set and edit app settings in both the app and in the iOS Settings app.  Exposing the app settings via a settings bundle is the right way to go because it allows your app to be compatible with MDM (mobile device management) systems that enable users to manage app settings across an enterprise, for example.  It's also a good idea to allow users to edit app settings within the app itself, but this usually entails a lot of extra coding - not only for reading and modifying settings in the app, but also presenting them in a table view and allowing them to be modified by the user.  This framework solves all of these problems.  It allows you to put all the app settings in one place - in the Settings bundle for the app.  And, with just a simple reference in your storyboard and the implementation of one protocol property, it presents the settings to the user in a table view just like the iOS Settings app does allowing full editing of each setting item.
 
 ## Requirements
-- iOS 10.1+
+- iOS 10.0+
 - Xcode 9.2+
 - Swift 4.2+
 
@@ -61,7 +62,7 @@ You can use Carthage to add this framework to your project:
 2. Edit this file to specify the 1.0.1 release or higher of this framework:
 
     ```
-    github "cdisdero/CRDSettings" >= 1.0.1
+    github "cdisdero/CRDSettings" >= 1.0.2
     ```
 	
 3. Run Carthage to add the framework sources and build this framework:
@@ -184,12 +185,48 @@ Then we use the `dependsOn` property of the settings button we created to set a 
 
 Finally we add the button to the group we found `supportGroup` after the switch.
 
+## Notifications
+Whenever a setting value changes, either in the app or in the iOS Settings app, you want to be notified that the change occurred and what the current value of the setting is.  That can be accomplished by adding an observer for the notification name `CRDSettings.NotificationSettingsChanged`.  For example:
+
+```
+/// The list of notification observers.
+private var observers: [NSObjectProtocol] = []
+
+...
+
+// Setup an observer for the *CRDSettings.NotificationSettingsChanged* notification so that whenever setting values change, we are notified and handed the current value.
+observers.append(NotificationCenter.default.addObserver(forName: CRDSettings.NotificationSettingsChanged, object: nil, queue: OperationQueue.main) { (notification) in
+
+    // Get the *CRDSettingsEntry* out of the notification by looking for the value with the key *CRDSettings.NotificationSettingsChangedSettingKey*
+    guard let userInfo = notification.userInfo, let settingsEntry = userInfo[CRDSettings.NotificationSettingsChangedSettingKey] as? CRDSettingsEntry else { return }
+
+    // Print out the changed settings entry to the console.
+    print("Changed: \(settingsEntry)")
+})
+```
+
+In the above example, an observer for the notification name `CRDSettings.NotificationSettingsChanged` is added and in that observer when it's triggered, we try to get the CRDSettingsEntry corresponding to the setting value that was changed by using the key name `CRDSettings.NotificationSettingsChangedSettingKey` and then print out the setting value to the console.
+
+You might use these notifications to monitor certain setting values and change your app behavior and/or update view controls in a view controller whenever you get the `CRDSettings.NotificationSettingsChanged` notification.
+
+If your app is in the background and a change is made to your app settings in the iOS Settings app, when you activate your app, this notification will fire and you can then update UI elements and handle behavioral changes in your app.
+
 ## Reference
 
 ### CRDSettings
 
 #### Overview
 This class represents the collection of the app's settings as read and synchronized with the settings bundle.
+
+#### Notifications
+
+* `CRDSettings.NotificationSettingsChanged`
+
+    Name of the notification that gets posted whenever a setting value changes.
+    
+* `CRDSettings.NotificationSettingsChangedSettingKey`
+
+    Name of the key that holds the `CRDSettingsEntry` object representing the setting value that changed in the notification `CRDSettings.NotificationSettingsChanged`
 
 #### Initializer
 

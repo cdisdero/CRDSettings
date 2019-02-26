@@ -14,19 +14,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CRDSettingsAppProtocol {
     
     // MARK: - CRDSettingsAppProtocol
 
+    /// Reference to the *CRDSettings* framework.
     var settings: CRDSettings?
 
     // MARK: - Internal members
     
     var window: UIWindow?
     
+    // MARK: - Private members
+    
+    /// The list of notification observers.
+    private var observers: [NSObjectProtocol] = []
+
     // MARK: - App lifecycle methods
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Create a new SRSettings instance for the app.
+        // Create a new CRDSettings instance for the app.
         settings = CRDSettings()
         
+        // Customize and initialize some settings.
         if let settings = settings {
             
             // Set the increment for the slider setting entry.
@@ -60,6 +67,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CRDSettingsAppProtocol {
             }
         }
 
+        // Setup an observer for the *CRDSettings.NotificationSettingsChanged* notification so that whenever setting values change, we are notified and handed the current value.
+        observers.append(NotificationCenter.default.addObserver(forName: CRDSettings.NotificationSettingsChanged, object: nil, queue: OperationQueue.main) { (notification) in
+            
+            // Get the *CRDSettingsEntry* out of the notification by looking for the value with the key *CRDSettings.NotificationSettingsChangedSettingKey*
+            guard let userInfo = notification.userInfo, let settingsEntry = userInfo[CRDSettings.NotificationSettingsChangedSettingKey] as? CRDSettingsEntry else { return }
+            
+            // Print out the changed settings entry to the console.
+            print("Changed: \(settingsEntry)")
+        })
+
         return true
     }
 
@@ -83,6 +100,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CRDSettingsAppProtocol {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
+        // Remove the observers for this view.
+        for observer in observers {
+            
+            NotificationCenter.default.removeObserver(observer)
+        }
+        observers.removeAll()
     }
 }
 

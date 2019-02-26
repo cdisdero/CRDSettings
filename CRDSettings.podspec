@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
 s.swift_version = '4.2'
 s.name         = "CRDSettings"
-s.version      = "1.0.1"
+s.version      = "1.0.2"
 s.summary      = "Turnkey solution for presenting and editing settings in your iOS apps."
 s.description  = <<-DESC
 Simple solution for presenting and editing settings inside of your iOS apps in a ready-made table view UI.
@@ -34,7 +34,7 @@ s.author             = { "Christopher Disdero" => "info@code.chrisdisdero.com" }
 # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #
 
-s.ios.deployment_target = "10.1"
+s.ios.deployment_target = "10.0"
 
 # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #

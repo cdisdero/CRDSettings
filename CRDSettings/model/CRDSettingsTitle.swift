@@ -24,4 +24,12 @@ public class CRDSettingsTitle: CRDSettingsEntry {
         
         try super.init(dictionary: dictionary)
     }
+    
+    // MARK: - CustomStringConvertible extension
+    
+    public override var description: String {
+        
+        // Return the identifier and the current value formatted as expected for this settings entry.
+        return "CRDSettingsTitle {id: \(identifier), value: \(currentValue != nil && currentValue is String ? (currentValue as! String) : "nil")}"
+    }
 }

@@ -69,4 +69,12 @@ public class CRDSettingsTextField: CRDSettingsEntry {
             self.autoCapitalizationTypeInternal = autocapitalizationType
         }
     }
+    
+    // MARK: - CustomStringConvertible extension
+    
+    public override var description: String {
+        
+        // Return the identifier and the current value formatted as expected for this settings entry.
+        return "CRDSettingsSlider {id: \(identifier), value: \(currentValue != nil && currentValue is String ? (currentValue as! String) : "nil")}"
+    }
 }

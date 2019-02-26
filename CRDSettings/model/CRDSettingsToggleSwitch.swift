@@ -24,4 +24,12 @@ public class CRDSettingsToggleSwitch: CRDSettingsEntry {
         
         try super.init(dictionary: dictionary)
     }
+
+    // MARK: - CustomStringConvertible extension
+
+    public override var description: String {
+        
+        // Return the identifier and the current value formatted as expected for this settings entry.
+        return "CRDSettingsToggleSwitch {id: \(identifier), value: \(currentValue != nil && currentValue is Bool ? (currentValue as! Bool) ? "ON" : "OFF" : "nil")}"
+    }
 }

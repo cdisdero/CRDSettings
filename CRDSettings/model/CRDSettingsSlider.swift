@@ -78,4 +78,21 @@ public class CRDSettingsSlider: CRDSettingsEntry {
             self.incrementValue = ((maxValue - minValue) + 1.0) / 10.0
         }
     }
+
+    // MARK: - CustomStringConvertible extension
+    
+    public override var description: String {
+        
+        // Return the identifier and the current value formatted as expected for this settings entry.
+        var formattedValue: String? = nil
+        if let value = currentValue as? Double {
+            
+            // Format the number according to the current locale settings for decimal formatting.
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.locale = Locale.current
+            formattedValue = formatter.string(from: NSNumber(floatLiteral: value))
+        }
+        return "CRDSettingsSlider {id: \(identifier), value: \(formattedValue != nil ? formattedValue! : "nil")}"
+    }
 }

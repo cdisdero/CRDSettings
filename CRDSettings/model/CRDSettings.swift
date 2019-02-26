@@ -42,6 +42,9 @@ public class CRDSettings: NSObject {
     
     /// Notification sent to subscribers when the settings have changed in some way.
     public static let NotificationSettingsChanged = Notification.Name("NotificationSettingsChanged")
+    
+    /// The user info key name of the value representing the *CRDSettingsEntry* that was changed in a *CRDSettings.NotificationSettingsChanged* notification message.
+    public static let NotificationSettingsChangedSettingKey = "setting"
 
     // MARK: - Private symbols
 
@@ -193,7 +196,7 @@ public class CRDSettings: NSObject {
         if let settingChanged = findSetting(identifier: identifier) {
             
             // Post a notification with the changed settings key and value.
-            NotificationCenter.default.post(name: CRDSettings.NotificationSettingsChanged, object: self, userInfo: ["setting": settingChanged])
+            NotificationCenter.default.post(name: CRDSettings.NotificationSettingsChanged, object: self, userInfo: [CRDSettings.NotificationSettingsChangedSettingKey: settingChanged])
         }
     }
     

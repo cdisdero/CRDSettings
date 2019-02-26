@@ -25,7 +25,7 @@ import Foundation
 /**
  Class that represents a setting entry of type PSGroupSpecifier.
  */
-public class CRDSettingsGroup {
+public class CRDSettingsGroup: CustomStringConvertible {
     
     // MARK: - Public properties
     
@@ -183,5 +183,13 @@ public class CRDSettingsGroup {
 
         // If filter() returns nil, then return nil.
         return nil
+    }
+
+    // MARK: - CustomStringConvertible extension
+    
+    public var description: String {
+        
+        // Return the title as expected for this settings group.
+        return "CRDSettingsGroup {title: \(title)}"
     }
 }

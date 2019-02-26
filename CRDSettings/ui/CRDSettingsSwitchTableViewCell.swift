@@ -64,6 +64,6 @@ internal class CRDSettingsSwitchTableViewCell: CRDSettingsEntryTableViewCell {
         guard let settingEntry = settingEntry else { return }
         
         // Notfiy observers that the switch has changed.
-        NotificationCenter.default.post(name: Notification.Name(CRDSettingsSwitchTableViewCell.NotificationSettingsSwitchChanged), object: self, userInfo: ["setting": settingEntry, "isOn": sender.isOn])
+        NotificationCenter.default.post(name: Notification.Name(CRDSettingsSwitchTableViewCell.NotificationSettingsSwitchChanged), object: self, userInfo: [CRDSettings.NotificationSettingsChangedSettingKey: settingEntry, "isOn": sender.isOn])
     }
 }

@@ -52,4 +52,12 @@ public class CRDSettingsActionButton: CRDSettingsEntry {
             self.actionInternal = action
         }
     }
+
+    // MARK: - CustomStringConvertible extension
+    
+    public override var description: String {
+        
+        // Return the identifier as expected for this settings entry.
+        return "CRDSettingsAction {id: \(identifier)}"
+    }
 }

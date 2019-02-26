@@ -130,10 +130,15 @@ internal class CRDSettingsSliderTableViewCell: CRDSettingsEntryTableViewCell {
             slider.value = roundedValue
         }
         
+        // Format the number according to the current locale settings for decimal formatting.
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale.current
+
         // Set the labels below the slider to the current state of the slider.
-        minLabel.text = slider.minimumValue.description
-        currentLabel.text = slider.value.description
-        maxLabel.text = slider.maximumValue.description
+        minLabel.text = formatter.string(from: NSNumber(value: slider.minimumValue))
+        currentLabel.text = formatter.string(from: NSNumber(value: slider.value))
+        maxLabel.text = formatter.string(from: NSNumber(value: slider.maximumValue))
 
         // Set whether the slider is enabled based on the enabled property of the setting entry.
         slider.isEnabled = settingEntry.enabled
@@ -156,8 +161,13 @@ internal class CRDSettingsSliderTableViewCell: CRDSettingsEntryTableViewCell {
             sender.value = roundedValue
         }
         
+        // Format the number according to the current locale settings for decimal formatting.
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale.current
+
         // Update the current value label based on the slider value.
-        currentLabel.text = sender.value.description
+        currentLabel.text = formatter.string(from: NSNumber(value: sender.value))
     }
     
     @objc func sliderDidEndSliding() {
@@ -166,7 +176,7 @@ internal class CRDSettingsSliderTableViewCell: CRDSettingsEntryTableViewCell {
         guard let settingEntry = settingEntry as? CRDSettingsSlider else { return }
 
         // Notfiy observers that the slider has changed.
-        NotificationCenter.default.post(name: Notification.Name(CRDSettingsSliderTableViewCell.NotificationSettingsSliderChanged), object: self, userInfo: ["setting": settingEntry, "value": NSNumber(value: slider.value)])
+        NotificationCenter.default.post(name: Notification.Name(CRDSettingsSliderTableViewCell.NotificationSettingsSliderChanged), object: self, userInfo: [CRDSettings.NotificationSettingsChangedSettingKey: settingEntry, "value": NSNumber(value: slider.value)])
     }
     
     @objc func handleDoubleTapOnCurrentLabel(sender:UITapGestureRecognizer) {

@@ -92,4 +92,41 @@ public class CRDSettingsMultiValue: CRDSettingsEntry {
             }
         }
     }
+    
+    // MARK: - CustomStringConvertible extension
+    
+    public override var description: String {
+        
+        // Try to get the current value string given the current value.
+        var currentValueString: String? = nil
+        if let titles = self.titles, let values = self.values {
+            
+            if let currentValue = self.currentValue as? NSNumber, let numberValues = values as? [NSNumber] {
+                
+                if let indexFound = numberValues.index(where: { (value) -> Bool in
+                    
+                    return value.isEqual(to: currentValue)
+                    
+                }) {
+                    
+                    currentValueString = titles[indexFound]
+                }
+            }
+            
+            if let currentValue = self.currentValue as? String, let stringValues = values as? [String] {
+                
+                if let indexFound = stringValues.index(where: { (value) -> Bool in
+                    
+                    return value.caseInsensitiveCompare(currentValue) == .orderedSame
+                    
+                }) {
+                    
+                    currentValueString = titles[indexFound]
+                }
+            }
+        }
+        
+        // Return the identifier and the current value formatted as expected for this settings entry.
+        return "CRDSettingsMultiValue {id: \(identifier), value: \(currentValueString != nil ? currentValueString! : "nil")}"
+    }
 }

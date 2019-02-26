@@ -25,7 +25,7 @@ import Foundation
 /**
  Class represents the base class of all non-group type entries in the app settings bundle.
  */
-public class CRDSettingsEntry {
+public class CRDSettingsEntry: CustomStringConvertible {
     
     // MARK: - Public properties
     
@@ -146,5 +146,13 @@ public class CRDSettingsEntry {
          
             return nil
         }
+    }
+
+    // MARK: - CustomStringConvertible extension
+
+    public var description: String {
+        
+        // Return the identifier and the current value formatted as expected for this settings entry.
+        return "CRDSettingsEntry {id: \(identifier), value: \(currentValue != nil ? String(describing: currentValue!) : "nil")}"
     }
 }

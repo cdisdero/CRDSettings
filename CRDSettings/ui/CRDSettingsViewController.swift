@@ -45,7 +45,7 @@ internal class CRDSettingsViewController: UITableViewController {
         observers.append(NotificationCenter.default.addObserver(forName: Notification.Name(CRDSettingsSwitchTableViewCell.NotificationSettingsSwitchChanged), object: nil, queue: OperationQueue.main) { (notification) in
             
             // Get the setting values from the notification.
-            guard let userInfo = notification.userInfo, let setting = userInfo["setting"] as? CRDSettingsEntry, let isOn = userInfo["isOn"] as? Bool else { return }
+            guard let userInfo = notification.userInfo, let setting = userInfo[CRDSettings.NotificationSettingsChangedSettingKey] as? CRDSettingsEntry, let isOn = userInfo["isOn"] as? Bool else { return }
             
             // Update the user default entry corresponding to the setting that changed value.
             UserDefaults.standard.set(isOn, forKey: setting.identifier)
@@ -56,7 +56,7 @@ internal class CRDSettingsViewController: UITableViewController {
         observers.append(NotificationCenter.default.addObserver(forName: Notification.Name(CRDSettingsSliderTableViewCell.NotificationSettingsSliderChanged), object: nil, queue: OperationQueue.main) { (notification) in
             
             // Get the setting values from the notification.
-            guard let userInfo = notification.userInfo, let setting = userInfo["setting"] as? CRDSettingsEntry, let value = userInfo["value"] as? NSNumber else { return }
+            guard let userInfo = notification.userInfo, let setting = userInfo[CRDSettings.NotificationSettingsChangedSettingKey] as? CRDSettingsEntry, let value = userInfo["value"] as? NSNumber else { return }
             
             // Update the user default entry corresponding to the setting that changed value.
             UserDefaults.standard.set(value, forKey: setting.identifier)
