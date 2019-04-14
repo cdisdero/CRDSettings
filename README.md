@@ -21,8 +21,8 @@ Often you want to allow users to set and edit app settings in both the app and i
 
 ## Requirements
 - iOS 10.0+
-- Xcode 9.2+
-- Swift 4.2+
+- Xcode 10.2+
+- Swift 5.0+
 
 ## Installation
 
@@ -35,7 +35,7 @@ Alternatively, you can install it as a Cocoapod
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.6.0+ is required to build CRDSettings.
+> CocoaPods 1.6.1+ is required to build CRDSettings.
 
 To integrate CRDSettings into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -59,10 +59,10 @@ You can use Carthage to add this framework to your project:
 
 1. Add a `Cartfile` to the directory where your xcodeproj file is located.
 
-2. Edit this file to specify the 1.0.1 release or higher of this framework:
+2. Edit this file to specify the 1.0.3 release or higher of this framework:
 
     ```
-    github "cdisdero/CRDSettings" >= 1.0.2
+    github "cdisdero/CRDSettings" >= 1.0.3
     ```
 	
 3. Run Carthage to add the framework sources and build this framework:

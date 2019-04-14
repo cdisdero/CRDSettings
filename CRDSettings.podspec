@@ -11,9 +11,9 @@ Pod::Spec.new do |s|
 # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #
 
-s.swift_version = '4.2'
+s.swift_version = '5.0'
 s.name         = "CRDSettings"
-s.version      = "1.0.2"
+s.version      = "1.0.3"
 s.summary      = "Turnkey solution for presenting and editing settings in your iOS apps."
 s.description  = <<-DESC
 Simple solution for presenting and editing settings inside of your iOS apps in a ready-made table view UI.

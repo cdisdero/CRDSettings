@@ -70,7 +70,7 @@ public class CRDSettingsMultiValue: CRDSettingsEntry {
         
         if let currentValue = self.currentValue as? NSNumber, let numberValues = values as? [NSNumber] {
             
-            if let indexFound = numberValues.index(where: { (value) -> Bool in
+            if let indexFound = numberValues.firstIndex(where: { (value) -> Bool in
                 
                 return value.isEqual(to: currentValue)
                 
@@ -82,7 +82,7 @@ public class CRDSettingsMultiValue: CRDSettingsEntry {
         
         if let currentValue = self.currentValue as? String, let stringValues = values as? [String] {
             
-            if let indexFound = stringValues.index(where: { (value) -> Bool in
+            if let indexFound = stringValues.firstIndex(where: { (value) -> Bool in
                 
                 return value.caseInsensitiveCompare(currentValue) == .orderedSame
                 
@@ -103,7 +103,7 @@ public class CRDSettingsMultiValue: CRDSettingsEntry {
             
             if let currentValue = self.currentValue as? NSNumber, let numberValues = values as? [NSNumber] {
                 
-                if let indexFound = numberValues.index(where: { (value) -> Bool in
+                if let indexFound = numberValues.firstIndex(where: { (value) -> Bool in
                     
                     return value.isEqual(to: currentValue)
                     
@@ -115,7 +115,7 @@ public class CRDSettingsMultiValue: CRDSettingsEntry {
             
             if let currentValue = self.currentValue as? String, let stringValues = values as? [String] {
                 
-                if let indexFound = stringValues.index(where: { (value) -> Bool in
+                if let indexFound = stringValues.firstIndex(where: { (value) -> Bool in
                     
                     return value.caseInsensitiveCompare(currentValue) == .orderedSame
                     
