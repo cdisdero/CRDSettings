@@ -35,7 +35,7 @@ Alternatively, you can install it as a Cocoapod
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.6.1+ is required to build CRDSettings.
+> CocoaPods 1.7.0+ is required to build CRDSettings.
 
 To integrate CRDSettings into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -59,10 +59,10 @@ You can use Carthage to add this framework to your project:
 
 1. Add a `Cartfile` to the directory where your xcodeproj file is located.
 
-2. Edit this file to specify the 1.0.3 release or higher of this framework:
+2. Edit this file to specify the 1.0.4 release or higher of this framework:
 
     ```
-    github "cdisdero/CRDSettings" >= 1.0.3
+    github "cdisdero/CRDSettings" >= 1.0.4
     ```
 	
 3. Run Carthage to add the framework sources and build this framework:
