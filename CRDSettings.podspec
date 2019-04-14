@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
 s.swift_version = '5.0'
 s.name         = "CRDSettings"
-s.version      = "1.0.4"
+s.version      = "1.0.5"
 s.summary      = "Turnkey solution for presenting and editing settings in your iOS apps."
 s.description  = <<-DESC
 Simple solution for presenting and editing settings inside of your iOS apps in a ready-made table view UI.
@@ -45,5 +45,7 @@ s.source       = { :git => "https://github.com/cdisdero/CRDSettings.git", :tag =
 #
 
 s.source_files   = 'CRDSettings/**/*.{swift,h,m,storyboard}'
-
+s.resource_bundles = {
+    'crdsettings-storyboard' => ['CRDSettings/**/*.{lproj,storyboard}']
+}
 end
