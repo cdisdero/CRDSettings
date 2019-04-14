@@ -17,7 +17,7 @@ Simple straightforward Swift-based framework for presenting and editing settings
 - [License](#license)
 
 ## Overview
-Often you want to allow users to set and edit app settings in both the app and in the iOS Settings app.  Exposing the app settings via a settings bundle is the right way to go because it allows your app to be compatible with MDM (mobile device management) systems that enable users to manage app settings across an enterprise, for example.  It's also a good idea to allow users to edit app settings within the app itself, but this usually entails a lot of extra coding - not only for reading and modifying settings in the app, but also presenting them in a table view and allowing them to be modified by the user.  This framework solves all of these problems.  It allows you to put all the app settings in one place - in the Settings bundle for the app.  And, with just a simple reference in your storyboard and the implementation of one protocol property, it presents the settings to the user in a table view just like the iOS Settings app does allowing full editing of each setting item.
+Often you want to allow users to set and edit app settings in both the app and in the iOS Settings app.  Exposing the app settings via a settings bundle is the right way to go because it allows your app to be compatible with MDM (mobile device management) systems that enable users to manage app settings across an enterprise, for example.  It's also a good idea to allow users to edit app settings within the app itself, but this usually entails a lot of extra coding - not only for reading and modifying settings in the app, but also presenting them in a table view and allowing them to be modified by the user.  This framework solves all of these problems.  It allows you to put all the app settings in one place - in the Settings bundle for the app.  And, with just the implementation of one protocol property and a few lines of code to instantiate the app settings view controller, the settings are presented to the user in a table view just like the iOS Settings app does allowing full editing of each setting item.
 
 ## Requirements
 - iOS 10.0+
@@ -59,10 +59,10 @@ You can use Carthage to add this framework to your project:
 
 1. Add a `Cartfile` to the directory where your xcodeproj file is located.
 
-2. Edit this file to specify the 1.0.4 release or higher of this framework:
+2. Edit this file to specify the 1.0.6 release or higher of this framework:
 
     ```
-    github "cdisdero/CRDSettings" >= 1.0.4
+    github "cdisdero/CRDSettings" >= 1.0.6
     ```
 	
 3. Run Carthage to add the framework sources and build this framework:
@@ -88,17 +88,26 @@ You can use Carthage to add this framework to your project:
 ## Usage
 The framework is very easy to use.  Just three steps to get it into your app:
 
-1. In your app's storyboard, add a UI element in a view controller that you want to open a view in which to present the app settings.  For example, you might have a button in the main view controller that you want to present settings from.  In this case, create a storyboard reference to CRDSettings and set the segue to present modally with a form sheet:
+1. In your app's storyboard, add a UI element in a view controller that you want to open a view in which to present the app settings.  For example, you might have a button in the main view controller that you want to present settings from.  Add an `IBAction` to your view controller code that responds to the UI element to get the CRDSettings bundle and instantiate the CRDSettings view controller to display the app settings:
 
-    ![Storyboard Reference](storyboard_segue.png)
+```
+    @IBAction func onSettings(_ sender: UIBarButtonItem) {
 
-    The reference to the CRDSettings storyboard should look like this:
-
-    ![Storyboard Reference](storyboard_reference.png)
-
-    The reference storyboard name should be `CRDSettings` and the bundle name should be `com.ChrisDisdero.CRDSettings`.
-
-    That takes care of adding the UI for presenting the settings in the app.
+        // Get the bundle corresponding to the CRDSettings framework.
+        let storyboardBundle = Bundle(for: CRDSettings.self)
+        
+        // Get the storyboard from the framework labelled 'CRDSettings'.
+        let storyboard = UIStoryboard(name: "CRDSettings", bundle: storyboardBundle)
+        
+        // Try to instantiate the settings view controller from the framework and present it as a slide-up form sheet.
+        guard let settingsController = storyboard.instantiateInitialViewController() else { return }
+        settingsController.modalTransitionStyle = .coverVertical
+        settingsController.modalPresentationStyle = .formSheet
+        present(settingsController, animated: true) {
+            // Do nothing here.
+        }
+    }
+```
 
 2. Implement one property of the `CRDSettingsAppProtocol` in your AppDelegate class.  Import the CRDSettings framework, and add the property:
 

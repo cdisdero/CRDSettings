@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,11 +19,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ow-TQ-MLW">
-                                <rect key="frame" x="159" y="318" width="57" height="30"/>
+                                <rect key="frame" x="159" y="318.5" width="57" height="30"/>
                                 <accessibility key="accessibilityConfiguration" identifier="buttonSettings"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
-                                    <segue destination="yLx-Yf-DJd" kind="presentation" modalPresentationStyle="formSheet" id="5J2-Yu-unQ"/>
+                                    <action selector="onSettings:" destination="own-FO-9t2" eventType="touchUpInside" id="4l4-vL-sua"/>
+                                    <action selector="onSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="obc-ez-D4e"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -36,15 +37,8 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="own-FO-9t2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-        </scene>
-        <!--CRDSettings-->
-        <scene sceneID="6a1-8b-aS5">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CRDSettings" bundleIdentifier="com.ChrisDisdero.CRDSettings" id="yLx-Yf-DJd" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J8i-8Y-Rba" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1087" y="71"/>
         </scene>
     </scenes>
 </document>
